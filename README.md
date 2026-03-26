@@ -51,6 +51,16 @@ It features a premium, interactive dark-mode web dashboard built with Flask to s
 - **Flask**
 - **Matplotlib / Pandas / NumPy**
 
+## Cloud Deployment (Render)
+
+This project includes a `render.yaml` configuration for seamless Infrastructure-as-Code deployments. To publish your app live:
+
+1. **Push your code to GitHub** (make sure `app.py`, `requirements.txt`, and `render.yaml` are pushed).
+2. Go to **[Render.com](https://render.com/)**, sign up/log in, and click **New → Blueprint**.
+3. Connect your GitHub account and select your `ChurnPredictorXAI` repository.
+4. Render will automatically detect the configuration and deploy your web app for free.
+*Note: Because the model generates synthetic data and trains an ensemble on boot, the `gunicorn` start command uses an extended `--timeout 200` to prevent timeouts on the free tier.*
+
 ## License
 
 This project is open-source and available under the MIT License.

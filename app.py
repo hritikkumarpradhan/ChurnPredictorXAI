@@ -255,6 +255,13 @@ class ChurnEngine:
 app = Flask(__name__)
 engine = ChurnEngine()
 
+print("⏳ Training model & computing explanations for WSGI boot …\n")
+engine.train()
+print("  ✅ Random Forest trained")
+engine.train_gam()
+print("  ✅ LogisticGAM fitted")
+print("  ✅ All ready\n")
+
 HTML_TEMPLATE = r"""
 <!DOCTYPE html>
 <html lang="en">
@@ -820,17 +827,7 @@ def predict():
 # ── boot ───────────────────────────────────────────────────────
 if __name__ == "__main__":
     print("━" * 56)
-    print("  ChurnPredictorXAI — Web Dashboard")
-    print("━" * 56)
-    print("\n⏳ Training model & computing explanations …\n")
-
-    engine.train()
-    print("  ✅ Random Forest trained")
-
-    engine.train_gam()
-    print("  ✅ LogisticGAM fitted")
-
-    print("  ✅ All ready\n")
+    print("  ChurnPredictorXAI — Web Dashboard (Local Mode)")
     print("━" * 56)
     print("  🌐  Open → http://127.0.0.1:5000")
     print("━" * 56)
